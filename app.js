@@ -227,8 +227,8 @@ app.get("/todos/:id",
 app.post("/todos",
   connectEnsureLogin.ensureLoggedIn(),
   async function (request, response) {
-    if (request.body.title.length < 5) {
-      request.flash("error", "Lenght of title should be atleast 5");
+    if (request.body.title.length < 1) {
+      request.flash("error", "Lenght of title should be atleast 1");
       return response.redirect("/todos");
     }
     if (!request.body.dueDate) {
